@@ -1,0 +1,51 @@
+import pygame
+from sys import exit
+
+pygame.init()
+screen = pygame.display.set_mode((800,400))
+#the numbers = screen size by pixels so 800 pixels 400 pixels
+pygame.display.set_caption('Runner')
+#name of the game 
+clock = pygame.time.Clock()
+test_font = pygame.font.Font('pygame_practice/UltimatePygameintro-main/font/Pixeltype.ttf', 50)
+#font type then font size
+
+sky_surface = pygame.image.load('pygame_practice/UltimatePygameintro-main/graphics/Sky.png').convert()
+ground = pygame.image.load('pygame_practice/UltimatePygameintro-main/graphics/ground.png').convert()
+text_surface = test_font.render('My game', False, 'Black')
+#(text you want to display)
+
+snail =pygame.image.load('pygame_practice/UltimatePygameintro-main/graphics/snail/snail1.png').convert_alpha()
+snail_rect = snail.get_rect(topleft = (600,260))
+
+player_surf =pygame.image.load('pygame_practice/UltimatePygameintro-main/graphics/player/player_walk_1.png').convert_alpha()
+player_rect = player_surf.get_rect(midbottom = (80,300))
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            #pygame.quit is the oposite of init
+            exit()
+            #imported and ends all code 
+
+    screen.blit(sky_surface,(0,0))
+    #screen.blit(which surfgce, position)
+    #put on surface on another surface
+    screen.blit(ground,(0,300))
+    screen.blit(text_surface,(300,50))
+    screen.blit(snail,snail_rect)
+    snail_rect.x -=4
+    if snail_rect.right <= 0: snail_rect.left = 800
+    screen.blit(player_surf,player_rect)
+
+    if player_rect.colliderect(snail_rect):
+        print('collision')
+    #checks if the hit boxes collides
+
+
+
+    pygame.display.update()
+    #updates the screen to the player
+    clock.tick(60)
+    #tells the while loop not to run fater than 60
