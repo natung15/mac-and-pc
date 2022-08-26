@@ -32,3 +32,15 @@ patient1 = {
     "weight":"190"
 }
 print(patient1["name"])
+
+humans = {
+    'kyla' : {
+        'features' : {
+            'physical': 'cute'}}
+            
+}
+cuties ={'kyla'}
+#dictionary in a dictionary (main thingy = {"a": {"b":{'c'}}})
+#
+for cuties in humans:
+    print("hello")
