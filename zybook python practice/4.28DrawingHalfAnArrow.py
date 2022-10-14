@@ -11,8 +11,10 @@ for x in range(height):
         print("*",end="")
     print(" ")
 
-for y in range(arrowWidth,0,-1):
-    for x in range(y):
-        print("*",end="")
-    print("")
+
+if arrowWidth > width:
+    for y in range(arrowWidth,0,-1):
+        for x in range(y):
+            print("*",end="")
+        print("")
 
