@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+int userInput;
+int quarterCheck;
+int quarterPass;
+int dimeCheck;
+int dimePass;
+int nickelCheck;
+int nickelPass;
+int pennyCheck;
+int output;
+
+
+cin >> userInput;
+
+if(userInput >= 25){
+   output = 1;
+   }
+else if(userInput < 25 && userInput >= 10){
+   output = 2;
+   }
+else if(userInput < 10 && userInput >= 5){
+   output = 3;
+   }
+else if(userInput < 5 && userInput >= 1){
+   output = 4;
+   }
+if(userInput <= 0 ){
+   output = 5;
+   }
+
+switch(output){
+   case 1:
+      quarterCheck = userInput / 25;
+      quarterPass = userInput % 25;
+      dimeCheck = quarterPass / 10;
+      dimePass = quarterPass % 10;
+      nickelCheck = dimePass / 5;
+      nickelPass = dimePass % 5;
+      pennyCheck = nickelPass / 1;
+      break;
+   case 2:
+      dimeCheck = userInput / 10;
+      dimePass = userInput % 10;
+      nickelCheck = dimePass / 5;
+      nickelPass = dimePass % 5;
+      pennyCheck = nickelPass / 1;
+      break;
+   case 3:
+      nickelCheck = userInput / 5;
+      nickelPass = userInput % 5;
+      pennyCheck = nickelPass / 1;
+      break;
+   case 4:
+      pennyCheck = userInput / 1;
+      break;
+   case 5:
+      cout << "No change" << endl;
+      break;
+   }
+
+if(quarterCheck == 1){
+   cout << quarterCheck << " Quarter " << endl; }
+else if(quarterCheck > 1){
+   cout << quarterCheck << " Quarters" << endl; }
+   
+if(dimeCheck == 1){
+   cout << dimeCheck << " Dime " << endl; }
+else if(dimeCheck > 1){
+   cout << dimeCheck << " Dimes " << endl; }
+   
+if(nickelCheck == 1){
+   cout << nickelCheck << " Nickel " << endl; }
+else if(dimeCheck > 1){
+   cout << nickelCheck << " Nickels " << endl; }
+
+if(pennyCheck == 1){
+   cout << pennyCheck << " Penny " << endl; }
+else if(pennyCheck > 1){
+   cout << pennyCheck << " Pennies " << endl; }
+
+
+
+
+   return 0;
+}

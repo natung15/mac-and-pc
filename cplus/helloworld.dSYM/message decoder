@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include using namespace std; 
+int main() { 
+    string input1;
+     string BFF = "best friend forever"; 
+     string IDK = "I don't know";
+      string JK = "just kidding";
+       string TMI = "too much information";
+        string TTYL = "talk to you later"; 
+        cout << "Enter text:" << endl;
+         getline(cin, input1);
+          cout << "You entered: " << input1 << endl;
+
+           if((input1.find("BFF")!= string:: npos)) { 
+            input1.replace(input1.find("BFF"), 3,BFF); 
+           } 
+
+           if((input1.find("IDK")!= string:: npos)) { 
+            input1.replace(input1.find("IDK"), 3,IDK); 
+           } 
+           if((input1.find("JK")!= string:: npos)) { input1.replace(input1.find("JK"), 2,JK); 
+           } if((input1.find("TMI")!= string:: npos)) { input1.replace(input1.find("TMI"), 3,TMI); 
+           } if((input1.find("TTYL")!= string:: npos)) { input1.replace(input1.find("TTYL"), 4,TTYL);
+            } cout << "Expanded: " << input1 << endl; return 0; }
